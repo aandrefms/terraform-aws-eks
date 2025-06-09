@@ -88,7 +88,7 @@ resource "aws_launch_template" "this" {
           kms_key_id            = try(ebs.value.kms_key_id, null)
           snapshot_id           = try(ebs.value.snapshot_id, null)
           throughput            = try(ebs.value.throughput, null)
-          volume_size           = try(ebs.value.volume_size, null)
+          volume_size           = 40
           volume_type           = try(ebs.value.volume_type, null)
         }
       }
