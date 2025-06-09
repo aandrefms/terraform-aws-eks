@@ -415,7 +415,7 @@ resource "aws_eks_node_group" "this" {
   version         = var.ami_id != "" ? null : var.cluster_version
 
   capacity_type        = var.capacity_type
-  disk_size            = var.use_custom_launch_template ? null : var.disk_size # if using a custom LT, set disk size on custom LT or else it will error here
+  disk_size            = var.use_custom_launch_template ? 40 : var.disk_size # if using a custom LT, set disk size on custom LT or else it will error here
   force_update_version = var.force_update_version
   # ML capacity block reservation requires instance type to be set on the launch template
   instance_types = var.capacity_type == "CAPACITY_BLOCK" ? null : var.instance_types
